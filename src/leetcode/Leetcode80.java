@@ -15,6 +15,7 @@ public class Leetcode80 {
             } else {
                 count = 1;
             }
+            //遇到两个以上相同的值跳过
             if (count <= 2) {
                 nums[i] = nums[j];
                 i++;
