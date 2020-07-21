@@ -5,6 +5,8 @@ import java.util.Map;
 
 /**
  * https://leetcode-cn.com/problems/two-sum/
+ * 本质：按照数值特征进行查找
+ * 因此字典的数据结构比较适合
  */
 public class Leetcode1 {
     public int[] twoSum(int[] nums, int target) {
