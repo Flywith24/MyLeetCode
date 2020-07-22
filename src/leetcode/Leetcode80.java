@@ -23,9 +23,7 @@ public class Leetcode80 {
         }
         return i;
     }
-}
 
-class Test {
     public static void main(String[] args) {
         Leetcode80 leetcode = new Leetcode80();
         System.out.println(leetcode.removeDuplicates(new int[]{0, 0, 1, 1, 1, 1, 2, 3, 3}));
