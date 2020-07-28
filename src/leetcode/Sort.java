@@ -18,16 +18,16 @@ public class Sort {
         mergeSort(arr, tempArr, 0, arr.length - 1);
     }
 
-    private void mergeSort(int[] arr, int[] tempArr, int left, int endIndex) {
-        if (endIndex <= left) return;
+    private void mergeSort(int[] arr, int[] tempArr, int left, int right) {
+        if (right <= left) return;
 
         // 中部位置下标
-        int mid = left + (endIndex - left) / 2;
+        int mid = left + (right - left) / 2;
 
         mergeSort(arr, tempArr, left, mid);
-        mergeSort(arr, tempArr, mid + 1, endIndex);
+        mergeSort(arr, tempArr, mid + 1, right);
 
-        merge(arr, tempArr, left, mid, endIndex);
+        merge(arr, tempArr, left, mid, right);
     }
 
     private void merge(int[] arr, int[] tempArr, int left, int mid, int right) {
