@@ -22,12 +22,12 @@ public class Sort {
         if (endIndex <= left) return;
 
         // 中部位置下标
-        int middleIndex = left + (endIndex - left) / 2;
+        int mid = left + (endIndex - left) / 2;
 
-        mergeSort(arr, tempArr, left, middleIndex);
-        mergeSort(arr, tempArr, middleIndex + 1, endIndex);
+        mergeSort(arr, tempArr, left, mid);
+        mergeSort(arr, tempArr, mid + 1, endIndex);
 
-        merge(arr, tempArr, left, middleIndex, endIndex);
+        merge(arr, tempArr, left, mid, endIndex);
     }
 
     private void merge(int[] arr, int[] tempArr, int left, int mid, int right) {
