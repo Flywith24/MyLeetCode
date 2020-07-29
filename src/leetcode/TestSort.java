@@ -3,7 +3,7 @@ package leetcode;
 public class TestSort {
     public static void main(String[] args) {
         int[] arr = {1, 7, 8, 2, 5, 4, 3, 6, 9};
-        new QuickSort().quickSort(arr);
+        new HeapSort().heapSort(arr);
         for (int value : arr) {
             System.out.print(value + " ");
         }
@@ -84,5 +84,40 @@ class QuickSort {
         arr[left] = arr[mark];
         arr[mark] = pivot;
         return mark;
+    }
+}
+
+class HeapSort {
+    void heapSort(int[] arr) {
+        int length = arr.length;
+        buildHeap(arr, length);
+        for (int i = length - 1; i >= 0; i--) {
+            int temp = arr[i];
+            arr[i] = arr[0];
+            arr[0] = temp;
+            length--;
+            sink(arr, 0, length);
+        }
+    }
+
+    private void buildHeap(int[] arr, int length) {
+        for (int i = length / 2; i >= 0; i--) {
+            sink(arr, i, length);
+        }
+    }
+
+    private void sink(int[] arr, int index, int length) {
+        int leftChild = 2 * index + 1;
+        int rightChild = 2 * index + 2;
+        int current = index;
+        if (leftChild < length && arr[leftChild] > arr[current]) current = leftChild;
+        if (rightChild < length && arr[rightChild] > arr[current]) current = rightChild;
+
+        if (index != current) {
+            int temp = arr[index];
+            arr[index] = arr[current];
+            arr[current] = temp;
+            sink(arr, current, length);
+        }
     }
 }
