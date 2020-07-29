@@ -1,18 +1,20 @@
 package leetcode;
 
-class TestSort {
+public class TestSort {
     public static void main(String[] args) {
-        int []arr = {1,7,8,2,5,4,3,6,9};
-        new Sort().mergeSort(arr);
+        int[] arr = {1, 7, 8, 2, 5, 4, 3, 6, 9};
+        new QuickSort().quickSort(arr);
         for (int value : arr) {
             System.out.print(value + " ");
         }
     }
 }
-public class Sort {
-    /**
-     * 归并排序
-     */
+
+/**
+ * 归并排序
+ */
+class MergeSort {
+
     void mergeSort(int[] arr) {
         int[] tempArr = new int[arr.length];
         mergeSort(arr, tempArr, 0, arr.length - 1);
@@ -46,5 +48,41 @@ public class Sort {
 
         t = 0;
         while (left <= right) arr[left++] = tempArr[t++];
+    }
+}
+
+/**
+ * 快速排序
+ */
+class QuickSort {
+
+    void quickSort(int[] sourceArray) {
+        quickSort(sourceArray, 0, sourceArray.length - 1);
+    }
+
+    private void quickSort(int[] arr, int left, int right) {
+        if (right <= left) return;
+
+        int pivotIndex = partition(arr, left, right);
+        quickSort(arr, left, pivotIndex - 1);
+        quickSort(arr, pivotIndex + 1, right);
+    }
+
+    private int partition(int[] arr, int left, int right) {
+        int pivot = arr[left];
+        int mark = left;
+
+        //单边扫描
+        for (int i = left + 1; i <= right; i++) {
+            if (arr[i] < pivot) {
+                mark++;
+                int temp = arr[mark];
+                arr[mark] = arr[i];
+                arr[i] = temp;
+            }
+        }
+        arr[left] = arr[mark];
+        arr[mark] = pivot;
+        return mark;
     }
 }
