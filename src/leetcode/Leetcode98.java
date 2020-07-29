@@ -17,7 +17,7 @@ public class Leetcode98 {
     }
 
     private void helper(TreeNode root) {
-        if (root == null || isValid == false) return;
+        if (root == null || !isValid) return;
         helper(root.left);
         if (list.size() != 0 && root.val <= list.get(list.size() - 1)) isValid = false;
         list.add(root.val);
