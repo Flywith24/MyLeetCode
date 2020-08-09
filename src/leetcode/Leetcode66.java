@@ -14,7 +14,6 @@ public class Leetcode66 {
         if (add > 0) {
             int[] result = new int[digits.length + 1];
             result[0] = 1;
-            System.arraycopy(digits, 0, result, 1, digits.length);
             return result;
         } else {
             return digits;
