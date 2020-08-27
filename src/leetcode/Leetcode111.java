@@ -7,6 +7,15 @@ import java.util.Queue;
  * https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/
  */
 public class Leetcode111 {
+    private class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+    }
 
     public int minDepthBFS(TreeNode root) {
         if (root == null) return 0;

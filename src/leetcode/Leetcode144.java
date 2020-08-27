@@ -7,6 +7,16 @@ import java.util.List;
  * https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
  */
 public class Leetcode144 {
+    private class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+    }
+
     private final List<Integer> result = new ArrayList<>();
 
     public List<Integer> preorderTraversal(TreeNode root) {
