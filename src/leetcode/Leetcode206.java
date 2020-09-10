@@ -4,7 +4,7 @@ package leetcode;
  * https://leetcode-cn.com/problems/reverse-linked-list/
  */
 public class Leetcode206 {
-    public class ListNode {
+    private static class ListNode {
         int val;
         ListNode next;
 
