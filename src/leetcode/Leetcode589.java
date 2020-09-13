@@ -23,7 +23,7 @@ public class Leetcode589 {
         }
     }
 
-    static class Node {
+    private static class Node {
         public int val;
         public List<Node> children;
 
