@@ -4,6 +4,12 @@ package leetcode;
  * https://leetcode-cn.com/problems/fibonacci-number/
  */
 public class Leetcode509 {
+    public int fib1(int n) {
+        if (n == 0) return 0;
+        if (n == 1 || n == 2) return 1;
+        return fib1(n - 1) + fib1(n - 2);
+    }
+
     public int fib(int n) {
         if (n < 2) return n;
         if (n == 2) return 1;
