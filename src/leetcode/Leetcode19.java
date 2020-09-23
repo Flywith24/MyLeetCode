@@ -4,7 +4,7 @@ package leetcode;
  * https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
  */
 public class Leetcode19 {
-    private class ListNode {
+    private static class ListNode {
         int val;
         ListNode next;
 
