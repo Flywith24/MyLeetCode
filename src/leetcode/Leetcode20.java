@@ -1,6 +1,7 @@
 package leetcode;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * https://leetcode-cn.com/problems/valid-parentheses/
@@ -11,15 +12,13 @@ public class Leetcode20 {
     }
 
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
-        for (char c : s.toCharArray()) {
-            if (c == '(') stack.push(')');
-            else if (c == '[') stack.push(']');
-            else if (c == '{') stack.push('}');
-            else if (stack.empty() || c != stack.pop()) {
-                return false;
-            }
+        Deque<Character> stack = new LinkedList<>();
+        for (char item : s.toCharArray()) {
+            if ('(' == item) stack.push(')');
+            else if ('[' == item) stack.push(']');
+            else if ('{' == item) stack.push('}');
+            else if (stack.isEmpty() || stack.pop() != item) return false;
         }
-        return stack.empty();
+        return stack.isEmpty();
     }
 }
