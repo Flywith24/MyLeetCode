@@ -43,4 +43,26 @@ public class Leetcode206 {
 
         return last;
     }
+
+    ListNode temp;//后驱节点
+
+    /**
+     * 反转链表前 N 个节点
+     */
+    public ListNode reverseList(ListNode head, int n) {
+        // base case
+        if (n == 1) {
+            // 记录第 n + 1 个节点
+            temp = head.next;
+            return head;
+        }
+
+        // 以 head.next 为起点，需要反转前 n - 1 个节点
+        ListNode last = reverseList(head.next, n - 1);
+        head.next.next = head;
+        // 让反转之后的 head 节点和后面的节点连起来
+        head.next = temp;
+
+        return last;
+    }
 }
