@@ -1,7 +1,5 @@
 package leetcode;
 
-import java.util.List;
-
 /**
  * https://leetcode-cn.com/problems/reverse-linked-list/
  */
@@ -35,10 +33,10 @@ public class Leetcode206 {
         return pre;
     }
 
-    public ListNode reverseList2(ListNode head) {
+    public ListNode reverseList(ListNode head) {
         // base case
         if (head == null || head.next == null) return head;
-        ListNode last = reverseList2(head.next);
+        ListNode last = reverseList(head.next);
 
         head.next.next = head;
         head.next = null;
@@ -68,6 +66,9 @@ public class Leetcode206 {
         return last;
     }
 
+    /**
+     * 翻转 m - n 个节点
+     */
     public ListNode reverseList(ListNode head, int m, int n) {
         if (m == 1) {
             return reverseListN(head, n);
